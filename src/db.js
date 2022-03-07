@@ -67,18 +67,18 @@ console.log(`password: ${password}`);
         await OOPArt.create(oopart);
     }
 
-    let flag;
+    let test;
     try {
-        flag = (await fsp.readFile("/flag.txt")).toString();
+        test = (await fsp.readFile("/test.txt")).toString();
     } 
     catch(err) {
-        flag = "HTB{test_flag}";
+        test = "test";
     }
 
     await OOPArt.create({
         name: "???",
         desc: crypto.randomBytes(512).toString("hex") 
-                + flag
+                + test
                 + crypto.randomBytes(512).toString("hex"),
         accessLevel: "overseer"
     });
